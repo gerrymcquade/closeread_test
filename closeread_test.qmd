@@ -1,21 +1,129 @@
 ---
-title: "closeread_test"
-author: "Gerald McQuade"
-format: closeread-html
+title: "Testing out the closeread extension!"
+format: 
+  closeread-html:
+    remove-header-space: true
+    css: https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css
 ---
 
-Hello World! Please read my Closeread story below.
+```{ojs}
+//| output: false
+require("https://cdn.jsdelivr.net/npm/juxtaposejs@1.1.6/build/js/juxtapose.min.js")
+  .catch(() => null)
+```
 
-:::{.cr-section}
+# Basic tests
 
+Below is my first practice with trying out closeread, hopefully it gives us an idea of what we can do with.
+
+:::::::: cr-section
 Closeread enables scrollytelling.
 
 Draw your readers attention with focus effects. @cr-features
 
-:::{#cr-features}
-1. Highlighting
-2. Zooming
-3. Panning
+::: {#cr-features}
+1.  Highlighting
+2.  Zooming
+3.  Panning
 :::
 
+an easy use of this is to display text next to an image (like this random photo pulled from unsplash!): @cr-fig1
+
+::: {#cr-fig1}
+![](amber-kipp-75715CVEJhI-unsplash.jpg)
+
+Image by [Amber Kipp](https://unsplash.com/photos/selective-focus-photography-of-orange-and-white-cat-on-brown-table-75715CVEJhI) on Unsplash
 :::
+
+::: {focus-on="cr-fig2"}
+this might be useful to show change over time:
+
+For example, here is the graph we have of annual average PM2.5 air pollution in Ethiopia in 1998...
+:::
+
+::: {#cr-fig2}
+![](eth_pm25_1998.svg){width="70%"}
+:::
+
+compared with air pollution in 2022! Look at the difference! @cr-fig3
+
+
+::: {#cr-fig3}
+![](eth_pm25_2022.svg){width="70%"}
+:::
+
+we can even zoom in to look at some of our communities... for example around Addis Ababa: [@cr-fig3]{pan-to="50%,0%" scale-by="3"}
+
+or even look at the difference across our communities by panning up towards Tigray! [@cr-fig3]{pan-to="50%,75%" scale-by="3"}
+
+::::::::
+
+I can split up sections of scrollytelling using normal text, figures, tables and graphs:
+
+{{< lipsum 1 >}}
+
+# Juxtaposing images
+
+I have even tried out using a bit of Javascript to give a juxtapose of 2 images, which lets you use the slider to compare across time, give it a try below!
+
+::: {.juxtapose data-startingposition="20%" style="margin-bottom:2em"}
+![](eth_pm25_2022.svg){width="50%" width="50%" data-credit="Young Lives, using V6.GL.02, Washington University St. Louis" data-label="PM2.5 in 2022"}
+
+![](eth_pm25_1998.svg){width="50%" data-label="PM2.5 in 1998"}
+:::
+
+Hopefully it works! Testing it a bit however it seems the juxtapose.js doesn't work inside the scrollytelling sections...😭
+
+:::: {.cr-section layout="sidebar-right"}
+
+::: {focus-on="cr-fig4"}
+The text can be moved around, we can set it to layout on the right side of the sticky item
+:::
+
+:::{#cr-fig4 .scale-to-fill}
+![](pm25_levels.svg)
+:::
+
+::::
+::::{.cr-section layout="overlay-right"}
+
+:::{#cr-fig5 .scale-to-fill}
+![](pm25_levels.svg)
+:::
+
+Or we can have it overlay the image/item, aligned to the right @cr-fig5
+
+::::
+::::{.cr-section layout="overlay-center"}
+
+:::{#cr-fig6 .scale-to-fill}
+![](pm25_levels.svg)
+:::
+
+Or over the top of the item... @cr-fig6
+::::
+
+# Exectuable code
+
+So far I have used images that are pre-rendered, but as I am typing this using Quarto markdown in R, I can display the output of code executed in R (and python, Julia, Observable, etc)
+
+::::{.cr-section}
+
+::: {#cr-myplot}
+```{r}
+hist(rnorm(15))
+```
+:::
+
+::: {focus-on="cr-myplot"}
+Here is a simple graph made using this code:
+
+```{r}
+#| eval: false
+#| echo: true
+hist(rnorm(15))
+```
+:::
+
+they can even be interactive!
+::::

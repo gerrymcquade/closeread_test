@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="James Goldie">
 
-<title>Testing out the closeread extension! – Closeread test</title>
+<title>Before-and-after image demo – Closeread test</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -73,9 +74,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script src="site_libs/quarto-contrib/intersection-observer-polyfill-1.0.0/intersection-observer.js"></script>
-<script src="site_libs/quarto-contrib/scrollama-3.2.0/scrollama.min.js"></script>
-<script src="site_libs/quarto-contrib/closeread-0.1.0/closeread.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -105,15 +103,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
 <link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
-<meta cr-debug-mode="false">
-<meta cr-remove-header-space="false">
 
 
-<link rel="stylesheet" href="_extensions/qmd-lab/closeread/closeread.css">
 <link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -131,7 +126,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./closeread_test.html" aria-current="page"> 
+    <a class="nav-link" href="./closeread_test.html"> 
 <span class="menu-text">test1</span></a>
   </li>  
 </ul>
@@ -142,22 +137,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Testing out the closeread extension!</h1>
+<div class="quarto-title-block"><div><h1 class="title">Before-and-after image demo</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<p class="subtitle lead">Driven by juxtapose.js</p>
 </div>
 
 
 
-<div class="quarto-title-meta column-page">
+<div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>James Goldie </p>
+          </div>
+  </div>
     
   
     
@@ -168,178 +170,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<section id="step-1-add-the-css-to-the-frontmatter" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-add-the-css-to-the-frontmatter">Step 1: add the CSS to the frontmatter</h2>
+<p>Your YAML frontmatter should include the library’s CSS (note how the examples on its GitHub README include a <code>&lt;link rel="stylesheet"&gt;</code> tag!):</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">css</span><span class="kw">:</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="step-2-importing-the-module" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-importing-the-module">Step 2: Importing the module</h2>
+<p>Let’s try it out. JuxtaposeJS is on <a href="https://www.jsdelivr.com">jsDelivr</a>, so we can just import it! It’s a little stubborn, but requiring the individual file, rather than just the package name, seems to work (thanks, <a href="https://observablehq.com/@observablehq/module-require-debugger">Observable Module Require Debugger</a>!). It produces an error but seems to work, so I just <code>catch</code> the error and ignore it:</p>
 <div class="cell hidden">
-<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="10" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 9;"><span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="pp">require</span>(<span class="st">"https://cdn.jsdelivr.net/npm/juxtaposejs@1.1.6/build/js/juxtapose.min.js"</span>)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">catch</span>(() <span class="kw">=&gt;</span> <span class="kw">null</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2" data-startfrom="26" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 25;"><span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="pp">require</span>(<span class="st">"https://cdn.jsdelivr.net/npm/juxtaposejs@1.1.6/build/js/juxtapose.min.js"</span>)</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">catch</span>(() <span class="kw">=&gt;</span> <span class="kw">null</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display hidden">
 <div id="ojs-cell-1" data-nodetype="expression">
 
 </div>
 </div>
 </div>
-<section id="basic-tests" class="level1">
-<h1>Basic tests</h1>
-<p>Below is my first practice with trying out closeread, hopefully it gives us an idea of what we can do with.</p>
-<div class="cr-section cr-column-screen sidebar-left">
-<div class="narrative-col">
-<div class="trigger">
-<div class="narrative">
-<p>Closeread enables scrollytelling.</p>
-</div>
-</div>
-<div class="trigger new-trigger" data-focus-on="cr-features">
-<div class="narrative">
-<p>Draw your readers attention with focus effects.</p>
-</div>
-</div>
-<div class="trigger new-trigger" data-focus-on="cr-fig1">
-<div class="narrative">
-<p>an easy use of this is to display text next to an image (like this random photo pulled from unsplash!):</p>
-</div>
-</div>
-<div class="trigger new-trigger" data-focus-on="cr-fig2">
-<div class="narrative">
-<p>this might be useful to show change over time:</p>
-<p>For example, here is the graph we have of annual average PM2.5 air pollution in Ethiopia in 1998…</p>
-</div>
-</div>
-<div class="trigger new-trigger" data-focus-on="cr-fig3">
-<div class="narrative">
-<p>compared with air pollution in 2022! Look at the difference!</p>
-</div>
-</div>
-<div class="trigger new-trigger" data-scale-by="3" data-focus-on="cr-fig3" data-pan-to="50%,0%">
-<div class="narrative">
-<p>we can even zoom in to look at some of our communities… for example around Addis Ababa:</p>
-</div>
-</div>
-<div class="trigger new-trigger" data-scale-by="3" data-focus-on="cr-fig3" data-pan-to="50%,75%">
-<div class="narrative">
-<p>or even look at the difference across our communities by panning up towards Tigray!</p>
-</div>
-</div>
-</div>
-<div class="sticky-col">
-<div class="sticky-col-stack">
-<div id="cr-features" class="sticky">
-<ol type="1">
-<li>Highlighting</li>
-<li>Zooming</li>
-<li>Panning</li>
-</ol>
-</div>
-<div id="cr-fig1" class="sticky">
-<p><img src="amber-kipp-75715CVEJhI-unsplash.jpg" class="img-fluid"></p>
-<p>Image by <a href="https://unsplash.com/photos/selective-focus-photography-of-orange-and-white-cat-on-brown-table-75715CVEJhI">Amber Kipp</a> on Unsplash</p>
-</div>
-<div id="cr-fig2" class="sticky">
-<p><img src="eth_pm25_1998.svg" class="img-fluid" style="width:70.0%"></p>
-</div>
-<div id="cr-fig3" class="sticky">
-<p><img src="eth_pm25_2022.svg" class="img-fluid" style="width:70.0%"></p>
-</div>
-</div>
-</div>
-</div>
-<p>I can split up sections of scrollytelling using normal text, figures, tables and graphs:</p>
-<p>Duis urna urna, pellentesque eu urna ut, malesuada bibendum dolor. Suspendisse potenti. Vivamus ornare, arcu quis molestie ultrices, magna est accumsan augue, auctor vulputate erat quam quis neque. Nullam scelerisque odio vel ultricies facilisis. Ut porta arcu non magna sagittis lacinia. Cras ornare vulputate lectus a tristique. Pellentesque ac arcu congue, rhoncus mi id, dignissim ligula.</p>
 </section>
-<section id="juxtaposing-images" class="level1">
-<h1>Juxtaposing images</h1>
-<p>I have even tried out using a bit of Javascript to give a juxtapose of 2 images, which lets you use the slider to compare across time, give it a try below!</p>
-<div class="juxtapose" data-startingposition="20%" style="margin-bottom:2em">
-<p><img src="eth_pm25_2022.svg" class="img-fluid" style="width:50.0%" data-credit="Young Lives, using V6.GL.02, Washington University St. Louis" data-label="PM2.5 in 2022"></p>
-<p><img src="eth_pm25_1998.svg" class="img-fluid" style="width:50.0%" data-label="PM2.5 in 1998"></p>
+<section id="step-3-write-the-juxtapose" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-write-the-juxtapose">Step 3: Write the Juxtapose!</h2>
+<p>And here’s the Juxtapose code! Once the library’s loaded, you can just write it with HTML, <a href="https://github.com/NUKnightLab/juxtapose#html-implementation">as per the README</a>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>::: {.juxtapose data-startingposition="35%" style="margin-bottom:2em"}</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="al">![](https://unsplash.com/photos/o3TZx8_j7FE/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjUzMzY0ODYw&amp;force=true&amp;w=640)</span>{data-credit="Fabian Mardi on Unsplash" data-label="Image A by Fabian Mardi on Unsplash"}</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="al">![](https://unsplash.com/photos/iFdPrhOPI_E/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjUzMzU4Mzg0&amp;force=true&amp;w=640)</span>{data-credit="Weyne Yew on Unsplash" data-label="Image B by Weyne Yew on Unsplash"}</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="juxtapose" data-startingposition="35%" style="margin-bottom:2em">
+<p><img src="https://unsplash.com/photos/o3TZx8_j7FE/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjUzMzY0ODYw&amp;force=true&amp;w=640.png" class="img-fluid" data-credit="Fabian Mardi on Unsplash" data-label="Image A by Fabian Mardi on Unsplash"></p>
+<p><img src="https://unsplash.com/photos/iFdPrhOPI_E/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjUzMzU4Mzg0&amp;force=true&amp;w=640.png" class="img-fluid" data-credit="Weyne Yew on Unsplash" data-label="Image B by Weyne Yew on Unsplash"></p>
 </div>
-<p>Hopefully it works! Testing it a bit however it seems the juxtapose.js doesn’t work inside the scrollytelling sections…😭</p>
-<div class="cr-section cr-column-screen sidebar-right">
-<div class="narrative-col">
-<div class="trigger new-trigger" data-focus-on="cr-fig4">
-<div class="narrative">
-<p>The text can be moved around, we can set it to layout on the right side of the sticky item</p>
-</div>
-</div>
-</div>
-<div class="sticky-col">
-<div class="sticky-col-stack">
-<div id="cr-fig4" class="scale-to-fill sticky">
-<p><img src="pm25_levels.svg" class="img-fluid"></p>
-</div>
-</div>
-</div>
-</div>
-<div class="cr-section cr-column-screen overlay-right">
-<div class="narrative-col">
-<div class="trigger new-trigger" data-focus-on="cr-fig5">
-<div class="narrative">
-<p>Or we can have it overlay the image/item, aligned to the right</p>
-</div>
-</div>
-</div>
-<div class="sticky-col">
-<div class="sticky-col-stack">
-<div id="cr-fig5" class="scale-to-fill sticky">
-<p><img src="pm25_levels.svg" class="img-fluid"></p>
-</div>
-</div>
-</div>
-</div>
-<div class="cr-section cr-column-screen overlay-center">
-<div class="narrative-col">
-<div class="trigger new-trigger" data-focus-on="cr-fig6">
-<div class="narrative">
-<p>Or over the top of the item…</p>
-</div>
-</div>
-</div>
-<div class="sticky-col">
-<div class="sticky-col-stack">
-<div id="cr-fig6" class="scale-to-fill sticky">
-<p><img src="pm25_levels.svg" class="img-fluid"></p>
-</div>
-</div>
-</div>
-</div>
-<p>So far I have used images that are pre-rendered, but as I am typing this using Quarto markdown in R, I can display the output of code executed in R (and python, Julia, Observable, etc)</p>
-<div class="cr-section cr-column-screen sidebar-left">
-<div class="narrative-col">
-<div class="trigger new-trigger" data-focus-on="cr-myplot">
-<div class="narrative">
-<p>Here is a simple graph made using this code:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">rnorm</span>(<span class="dv">15</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-<div class="trigger">
-<div class="narrative">
-<p>they can even be interactive!</p>
-</div>
-</div>
-</div>
-<div class="sticky-col">
-<div class="sticky-col-stack">
-<div id="cr-myplot" class="sticky">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="closeread_test_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<p>Nice! I’ve added a bit of extra <code>margin-bottom</code> to it so that this text clears it properly too.</p>
 
+
+<!-- -->
 
 </section>
 
 </main> <!-- /main -->
 <script type="ojs-module-contents">
-eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InJlcXVpcmUoXCJodHRwczovL2Nkbi5qc2RlbGl2ci5uZXQvbnBtL2p1eHRhcG9zZWpzQDEuMS42L2J1aWxkL2pzL2p1eHRhcG9zZS5taW4uanNcIilcbiAgLmNhdGNoKCgpID0+IG51bGwpXG4ifV19
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InJlcXVpcmUoXCJodHRwczovL2Nkbi5qc2RlbGl2ci5uZXQvbnBtL2p1eHRhcG9zZWpzQDEuMS42L2J1aWxkL2pzL2p1eHRhcG9zZS5taW4uanNcIilcclxuICAuY2F0Y2goKCkgPT4gbnVsbClcclxuIn1dfQ==
 </script>
 <script type="module">
 if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
@@ -438,6 +311,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       container: window.document.getElementById('quarto-embedded-source-code-modal')
     });
     clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
@@ -768,7 +692,62 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb4" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Before-and-after image demo"</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Driven by juxtapose.js"</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "James Goldie"</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">    css:</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">      - https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## Step 1: add the CSS to the frontmatter</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>Your YAML frontmatter should include the library's CSS (note how the examples on its GitHub README include a <span class="in">`&lt;link rel="stylesheet"&gt;`</span> tag!):</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="in">```yaml</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="fu">css</span><span class="kw">:</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span>https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="fu">## Step 2: Importing the module</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>Let's try it out. JuxtaposeJS is on <span class="co">[</span><span class="ot">jsDelivr</span><span class="co">](https://www.jsdelivr.com)</span>, so we can just import it! It's a little stubborn, but requiring the individual file, rather than just the package name, seems to work (thanks, <span class="co">[</span><span class="ot">Observable Module Require Debugger</span><span class="co">](https://observablehq.com/@observablehq/module-require-debugger)</span>!). It produces an error but seems to work, so I just <span class="in">`catch`</span> the error and ignore it:</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="in">```{ojs}</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="in">//| output: false</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="in">require("https://cdn.jsdelivr.net/npm/juxtaposejs@1.1.6/build/js/juxtapose.min.js")</span></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="in">  .catch(() =&gt; null)</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a><span class="fu">## Step 3: Write the Juxtapose!</span></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>And here's the Juxtapose code! Once the library's loaded, you can just write it with HTML, <span class="co">[</span><span class="ot">as per the README</span><span class="co">](https://github.com/NUKnightLab/juxtapose#html-implementation)</span>:</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a><span class="in">```markdown</span></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>::: {.juxtapose data-startingposition="35%" style="margin-bottom:2em"}</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a><span class="al">![](https://unsplash.com/photos/o3TZx8_j7FE/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjUzMzY0ODYw&amp;force=true&amp;w=640)</span>{data-credit="Fabian Mardi on Unsplash" data-label="Image A by Fabian Mardi on Unsplash"}</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a><span class="al">![](https://unsplash.com/photos/iFdPrhOPI_E/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjUzMzU4Mzg0&amp;force=true&amp;w=640)</span>{data-credit="Weyne Yew on Unsplash" data-label="Image B by Weyne Yew on Unsplash"}</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>::: {.juxtapose data-startingposition="35%" style="margin-bottom:2em"}</span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a><span class="al">![](https://unsplash.com/photos/o3TZx8_j7FE/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjUzMzY0ODYw&amp;force=true&amp;w=640)</span>{data-credit="Fabian Mardi on Unsplash" data-label="Image A by Fabian Mardi on Unsplash"}</span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a><span class="al">![](https://unsplash.com/photos/iFdPrhOPI_E/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjUzMzU4Mzg0&amp;force=true&amp;w=640)</span>{data-credit="Weyne Yew on Unsplash" data-label="Image B by Weyne Yew on Unsplash"}</span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>Nice! I've added a bit of extra <span class="in">`margin-bottom`</span> to it so that this text clears it properly too.</span>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 
 
