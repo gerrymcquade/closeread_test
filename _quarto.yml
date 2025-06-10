@@ -3,8 +3,11 @@ project:
   output-dir: docs
   
 website:
-  title: "Closeread test"
+  title: "Gerry's test site"
   navbar:
+    logo: "logo.png"
     left:
       - href: closeread_test.qmd
-        text: test1
+        text: Closeread
+      - href: gallery_test.qmd
+        text: "Photo gallery"

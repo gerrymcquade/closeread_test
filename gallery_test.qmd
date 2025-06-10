@@ -1,0 +1,17 @@
+---
+title: "Gallery and unsplash shortcode test"
+format: html
+---
+
+here is a photo direct from the unsplash download address:
+
+![test](https://unsplash.com/photos/-Q_t4SCN8c4/download?ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNzQ5NTkwMTU0fA&force=true&w=640)
+
+finally, lets try lorem picsum for a specific image using ID:
+
+![Lorem picsum](https://picsum.photos/id/237/200/300)
+
+
+maybe its an issue with redirect?:
+
+![Lorem ipsum direct](https://fastly.picsum.photos/id/1/5000/3333.jpg?hmac=Asv2DU3rA_5D1xSe22xZK47WEAN0wjWeFOhzd13ujW4)

@@ -4,6 +4,9 @@ format:
   closeread-html:
     remove-header-space: true
     css: https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css
+title-block-banner: "#211545"
+title-block-banner-color: "white"
+
 ---
 
 ```{ojs}

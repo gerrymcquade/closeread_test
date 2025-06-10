@@ -1,37 +1,16 @@
 [
   {
+    "objectID": "gallery_test.html",
+    "href": "gallery_test.html",
+    "title": "Gallery and unsplash shortcode test",
+    "section": "",
+    "text": "here is a photo direct from the unsplash download address:\n\n\n\ntest\n\n\nfinally, lets try lorem picsum for a specific image using ID:\n\n\n\nLorem picsum\n\n\nmaybe its an issue with redirect?:\n\n\n\nLorem ipsum direct"
+  },
+  {
     "objectID": "closeread_test.html",
     "href": "closeread_test.html",
     "title": "Testing out the closeread extension!",
     "section": "",
-    "text": "require(\"https://cdn.jsdelivr.net/npm/juxtaposejs@1.1.6/build/js/juxtapose.min.js\")\n  .catch(() =&gt; null)\n\n\n\n\n\n\n\nBasic tests\nBelow is my first practice with trying out closeread, hopefully it gives us an idea of what we can do with.\n\n\n\n\nCloseread enables scrollytelling.\n\n\n\n\nDraw your readers attention with focus effects.\n\n\n\n\nan easy use of this is to display text next to an image (like this random photo pulled from unsplash!):\n\n\n\n\nthis might be useful to show change over time:\nFor example, here is the graph we have of annual average PM2.5 air pollution in Ethiopia in 1998…\n\n\n\n\ncompared with air pollution in 2022! Look at the difference!\n\n\n\n\nwe can even zoom in to look at some of our communities… for example around Addis Ababa:\n\n\n\n\nor even look at the difference across our communities by panning up towards Tigray!\n\n\n\n\n\n\n\nHighlighting\nZooming\nPanning\n\n\n\n\nImage by Amber Kipp on Unsplash\n\n\n\n\n\n\n\n\n\n\nI can split up sections of scrollytelling using normal text, figures, tables and graphs:\nDuis urna urna, pellentesque eu urna ut, malesuada bibendum dolor. Suspendisse potenti. Vivamus ornare, arcu quis molestie ultrices, magna est accumsan augue, auctor vulputate erat quam quis neque. Nullam scelerisque odio vel ultricies facilisis. Ut porta arcu non magna sagittis lacinia. Cras ornare vulputate lectus a tristique. Pellentesque ac arcu congue, rhoncus mi id, dignissim ligula.\n\n\nJuxtaposing images\nI have even tried out using a bit of Javascript to give a juxtapose of 2 images, which lets you use the slider to compare across time, give it a try below!\n\n\n\n\nHopefully it works! Testing it a bit however it seems the juxtapose.js doesn’t work inside the scrollytelling sections…😭\n\n\n\n\nThe text can be moved around, we can set it to layout on the right side of the sticky item\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOr we can have it overlay the image/item, aligned to the right\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOr over the top of the item…\n\n\n\n\n\n\n\n\n\n\n\nSo far I have used images that are pre-rendered, but as I am typing this using Quarto markdown in R, I can display the output of code executed in R (and python, Julia, Observable, etc)\n\n\n\n\nHere is a simple graph made using this code:\n\nhist(rnorm(15))\n\n\n\n\n\nthey can even be interactive!"
-  },
-  {
-    "objectID": "juxtapose_test.html",
-    "href": "juxtapose_test.html",
-    "title": "Before-and-after image demo",
-    "section": "",
-    "text": "Your YAML frontmatter should include the library’s CSS (note how the examples on its GitHub README include a &lt;link rel=\"stylesheet\"&gt; tag!):\ncss:\n  - https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css"
-  },
-  {
-    "objectID": "juxtapose_test.html#step-1-add-the-css-to-the-frontmatter",
-    "href": "juxtapose_test.html#step-1-add-the-css-to-the-frontmatter",
-    "title": "Before-and-after image demo",
-    "section": "",
-    "text": "Your YAML frontmatter should include the library’s CSS (note how the examples on its GitHub README include a &lt;link rel=\"stylesheet\"&gt; tag!):\ncss:\n  - https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css"
-  },
-  {
-    "objectID": "juxtapose_test.html#step-2-importing-the-module",
-    "href": "juxtapose_test.html#step-2-importing-the-module",
-    "title": "Before-and-after image demo",
-    "section": "Step 2: Importing the module",
-    "text": "Step 2: Importing the module\nLet’s try it out. JuxtaposeJS is on jsDelivr, so we can just import it! It’s a little stubborn, but requiring the individual file, rather than just the package name, seems to work (thanks, Observable Module Require Debugger!). It produces an error but seems to work, so I just catch the error and ignore it:\n\nrequire(\"https://cdn.jsdelivr.net/npm/juxtaposejs@1.1.6/build/js/juxtapose.min.js\")\n  .catch(() =&gt; null)"
-  },
-  {
-    "objectID": "juxtapose_test.html#step-3-write-the-juxtapose",
-    "href": "juxtapose_test.html#step-3-write-the-juxtapose",
-    "title": "Before-and-after image demo",
-    "section": "Step 3: Write the Juxtapose!",
-    "text": "Step 3: Write the Juxtapose!\nAnd here’s the Juxtapose code! Once the library’s loaded, you can just write it with HTML, as per the README:\n::: {.juxtapose data-startingposition=\"35%\" style=\"margin-bottom:2em\"}\n\n![](https://unsplash.com/photos/o3TZx8_j7FE/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjUzMzY0ODYw&force=true&w=640){data-credit=\"Fabian Mardi on Unsplash\" data-label=\"Image A by Fabian Mardi on Unsplash\"}\n\n![](https://unsplash.com/photos/iFdPrhOPI_E/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjUzMzU4Mzg0&force=true&w=640){data-credit=\"Weyne Yew on Unsplash\" data-label=\"Image B by Weyne Yew on Unsplash\"}\n\n:::\n\n\n\n\nNice! I’ve added a bit of extra margin-bottom to it so that this text clears it properly too."
+    "text": "require(\"https://cdn.jsdelivr.net/npm/juxtaposejs@1.1.6/build/js/juxtapose.min.js\")\n  .catch(() =&gt; null)\n\n\n\n\n\n\n\nBasic tests\nBelow is my first practice with trying out closeread, hopefully it gives us an idea of what we can do with.\n\n\n\n\nCloseread enables scrollytelling.\n\n\n\n\nDraw your readers attention with focus effects.\n\n\n\n\nan easy use of this is to display text next to an image (like this random photo pulled from unsplash!):\n\n\n\n\nthis might be useful to show change over time:\nFor example, here is the graph we have of annual average PM2.5 air pollution in Ethiopia in 1998…\n\n\n\n\ncompared with air pollution in 2022! Look at the difference!\n\n\n\n\nwe can even zoom in to look at some of our communities… for example around Addis Ababa:\n\n\n\n\nor even look at the difference across our communities by panning up towards Tigray!\n\n\n\n\n\n\n\nHighlighting\nZooming\nPanning\n\n\n\n\nImage by Amber Kipp on Unsplash\n\n\n\n\n\n\n\n\n\n\nI can split up sections of scrollytelling using normal text, figures, tables and graphs:\nDuis ornare ex ac iaculis pretium. Maecenas sagittis odio id erat pharetra, sit amet consectetur quam sollicitudin. Vivamus pharetra quam purus, nec sagittis risus pretium at. Nullam feugiat, turpis ac accumsan interdum, sem tellus blandit neque, id vulputate diam quam semper nisl. Donec sit amet enim at neque porttitor aliquet. Phasellus facilisis nulla eget placerat eleifend. Vestibulum non egestas eros, eget lobortis ipsum. Nulla rutrum massa eget enim aliquam, id porttitor erat luctus. Nunc sagittis quis eros eu sagittis. Pellentesque dictum, erat at pellentesque sollicitudin, justo augue pulvinar metus, quis rutrum est mi nec felis. Vestibulum efficitur mi lorem, at elementum purus tincidunt a. Aliquam finibus enim magna, vitae pellentesque erat faucibus at. Nulla mauris tellus, imperdiet id lobortis et, dignissim condimentum ipsum. Morbi nulla orci, varius at aliquet sed, facilisis id tortor. Donec ut urna nisi.\n\n\nJuxtaposing images\nI have even tried out using a bit of Javascript to give a juxtapose of 2 images, which lets you use the slider to compare across time, give it a try below!\n\n\n\n\nHopefully it works! Testing it a bit however it seems the juxtapose.js doesn’t work inside the scrollytelling sections…😭\n\n\n\n\nThe text can be moved around, we can set it to layout on the right side of the sticky item\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOr we can have it overlay the image/item, aligned to the right\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOr over the top of the item…\n\n\n\n\n\n\n\n\n\n\n\n\n\nExectuable code\nSo far I have used images that are pre-rendered, but as I am typing this using Quarto markdown in R, I can display the output of code executed in R (and python, Julia, Observable, etc)\n\n\n\n\nHere is a simple graph made using this code:\n\nhist(rnorm(15))\n\n\n\n\n\nthey can even be interactive!"
   }
 ]
