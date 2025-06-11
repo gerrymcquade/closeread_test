@@ -52,14 +52,14 @@ For example, here is the graph we have of annual average PM2.5 air pollution in 
 :::
 
 ::: {#cr-fig2 .scale-to-fill}
-![](eth_pm25_1998.svg){width=50% fig-align="center" layout-valign="center"}
+![](eth_pm25_1998.svg){fig-align="center" layout-valign="center"}
 :::
 
 compared with air pollution in 2022! Look at the difference! @cr-fig3
 
 
 ::: {#cr-fig3 .scale-to-fill}
-![](eth_pm25_2022.svg){width=50% fig-align="center" layout-valign="center"}
+![](eth_pm25_2022.svg){fig-align="center" layout-valign="center"}
 :::
 
 we can even zoom in to look at some of our communities... for example around Addis Ababa: [@cr-fig3]{pan-to="25%,0%" scale-by="3"}
