@@ -1,17 +1,118 @@
 ---
 title: "Gallery and unsplash shortcode test"
 format: html
+filters:
+  - masonry
+include-in-header: 
+  - text: |
+      <style>
+        .grid-item {
+          width: 25%;
+          float: left;
+          background: #FFFFFF;
+          border: 2px solid #333;
+          border-color: hsla(0, 0%, 0%, 0.5);
+          border-radius: 5px;
+        }
+      </style>
+lightbox: auto
 ---
 
-here is a photo direct from the unsplash download address:
+All these photos come from [Lorem picsum](https://picsum.photos/), and they are given the lightbox treatment (click on them to see them together in a gallery!)
 
-![test](https://unsplash.com/photos/-Q_t4SCN8c4/download?ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNzQ5NTkwMTU0fA&force=true&w=640)
+# Simple gallery using layout-ncol
 
-finally, lets try lorem picsum for a specific image using ID:
+::: {layout-ncol=4}
 
-![Lorem picsum](https://picsum.photos/id/237/200/300)
+![Doggy](https://fastly.picsum.photos/id/237/200/200.jpg?hmac=zHUGikXUDyLCCmvyww1izLK3R3k8oRYBRiTizZEdyfI){group="gallery_1"}
 
+![Oxford?](https://fastly.picsum.photos/id/193/200/200.jpg?hmac=JHo5tWHSRWvVbL3HX6rwDNdkvYPFojLtXkEGEUCgz6A){group="gallery_1"}
 
-maybe its an issue with redirect?:
+![Deer](https://fastly.picsum.photos/id/1003/200/200.jpg?hmac=w2SN03yog7_RB-IfnyWX1FtBjSHebnoWD35Lj4-iV7o){group="gallery_1"}
 
-![Lorem ipsum direct](https://fastly.picsum.photos/id/1/5000/3333.jpg?hmac=Asv2DU3rA_5D1xSe22xZK47WEAN0wjWeFOhzd13ujW4)
+![Waves](https://fastly.picsum.photos/id/846/200/200.jpg?hmac=sBOPnyp2w5gN9cwTnXUuQ528aG4bLJ2qf_d-3y-LjSo){group="gallery_1"}
+
+![Artsy camera](https://fastly.picsum.photos/id/91/200/200.jpg?hmac=y-8iGl9dOkbHqADPlWuS-rWBHNBWWXlzKcsTDu2WeQo){group="gallery_1"}
+
+![Airplane](https://fastly.picsum.photos/id/364/200/200.jpg?hmac=wN2-1fE2NpZHjoUsBhb3BfnYFXmdmhd-DVhDqHG_Kg0){group="gallery_1"}
+
+![Mysterious foggy steps...](https://fastly.picsum.photos/id/842/200/200.jpg?hmac=RW9iEgAYLKwoinQWSz_zrZHyOwmVEgqvoZTPebkRGMM){group="gallery_1"}
+
+![Sky ting](https://fastly.picsum.photos/id/53/200/200.jpg?hmac=NvXWlWpaKnDMb_phNyfwXppFuuNz0jK69wUnSFYQ6Ww){group="gallery_1"}
+
+:::
+
+works nice if they are all the same size photo, what about different sizes?
+
+:::{layout-ncol=4}
+
+![Flower](https://fastly.picsum.photos/id/55/200/300.jpg?hmac=VjTl-6Y6NNyUWof_G17-KlocVl0QuUoxpir1beSTl8A){group="gallery_2"}
+
+![Machinery](https://fastly.picsum.photos/id/495/200/200.jpg?hmac=WzrKoNNBWVnlSjTRFVRlUyZghnLUBZJXeXdHNugLsQ4){group="gallery_2"}
+
+![Seattle](https://fastly.picsum.photos/id/1075/200/400.jpg?hmac=jhcJzJcIbzMlKyMFYaNk6JBx55WUGOJfLYTtAX4SKKw){group="gallery_2"}
+
+![Island](https://fastly.picsum.photos/id/941/200/250.jpg?hmac=jm1tRRhNE7bx3sj8A9Cz74ix9aU9enIbf9c-uCX_sS4){group="gallery_2"}
+
+![Hazy forest](https://fastly.picsum.photos/id/722/200/300.jpg?hmac=MDrZtULoytyxS357HVHCqzJRUv_BsxU0MEgszPVuMyY){group="gallery_2"}
+
+![Macbook](https://fastly.picsum.photos/id/48/200/200.jpg?hmac=3FKJwSlm1FM1GD916vZX2Z3HUjHsUXvQM3rYWYXsQvc){group="gallery_2"}
+
+![Paris](https://fastly.picsum.photos/id/234/200/300.jpg?hmac=KD9xFDCez7-lqgcMm-EEi7BtpClIdCzJS6YvFVyLiDs){group="gallery_2"}
+
+![Raindrops](https://fastly.picsum.photos/id/115/200/250.jpg?hmac=seUlfCABpCiUkqKxbsqrsw4I_XKWR_asF6I9Fie1U1k){group="gallery_2"}
+
+:::
+
+not quite as pretty...
+
+# Masonary.js?
+
+Lets try using the extension to use masonary.js written by `@mcanouil` (mcanouil/quarto-masonry), to give us a cascading gallery, following the suggestions of [Cynthia Huang's post](https://www.cynthiahqy.com/posts/masonry-gallery/) first install using the following command in the terminal:
+
+```
+quarto add mcanouil/quarto-masonry
+```
+then we can create our Pinterest-style cascading gallery:
+
+:::: {.grid data-masonry='{ "itemSelector": ".grid-item", "gutter": 0 }'}
+
+:::{.grid-item}
+![Flower](https://fastly.picsum.photos/id/55/200/300.jpg?hmac=VjTl-6Y6NNyUWof_G17-KlocVl0QuUoxpir1beSTl8A){group="gallery_3"}
+:::
+
+:::{.grid-item}
+![Machinery](https://fastly.picsum.photos/id/495/200/200.jpg?hmac=WzrKoNNBWVnlSjTRFVRlUyZghnLUBZJXeXdHNugLsQ4){group="gallery_2"}
+:::
+
+:::{.grid-item}
+![Seattle](https://fastly.picsum.photos/id/1075/200/400.jpg?hmac=jhcJzJcIbzMlKyMFYaNk6JBx55WUGOJfLYTtAX4SKKw){group="gallery_2"}
+:::
+
+:::{.grid-item}
+![Island](https://fastly.picsum.photos/id/941/200/250.jpg?hmac=jm1tRRhNE7bx3sj8A9Cz74ix9aU9enIbf9c-uCX_sS4){group="gallery_2"}
+:::
+
+:::{.grid-item}
+![Hazy forest](https://fastly.picsum.photos/id/722/200/300.jpg?hmac=MDrZtULoytyxS357HVHCqzJRUv_BsxU0MEgszPVuMyY){group="gallery_2"}
+:::
+
+:::{.grid-item}
+![Macbook](https://fastly.picsum.photos/id/48/200/200.jpg?hmac=3FKJwSlm1FM1GD916vZX2Z3HUjHsUXvQM3rYWYXsQvc){group="gallery_2"}
+:::
+
+:::{.grid-item}
+![Paris](https://fastly.picsum.photos/id/234/200/300.jpg?hmac=KD9xFDCez7-lqgcMm-EEi7BtpClIdCzJS6YvFVyLiDs){group="gallery_2"}
+:::
+
+:::{.grid-item}
+![Raindrops](https://fastly.picsum.photos/id/115/200/250.jpg?hmac=seUlfCABpCiUkqKxbsqrsw4I_XKWR_asF6I9Fie1U1k){group="gallery_2"}
+:::
+
+::::
+
+however worryingly, I think adding lightbox features to the cascading gallery leads to them messing up and overlapping...
+
+# Carousel?
+
+I would also love to be able to have a rotating carousel of photos, although this isn't a native option for Quarto.

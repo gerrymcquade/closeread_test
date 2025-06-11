@@ -6,6 +6,7 @@ website:
   title: "Gerry's test site"
   navbar:
     logo: "logo.png"
+    logo-href: https://www.younglives.org.uk/
     left:
       - href: closeread_test.qmd
         text: Closeread

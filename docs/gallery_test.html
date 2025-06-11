@@ -39,6 +39,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-d4be639c637f3db3c684c66cefad7e0c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/masonry-4.2.2/masonry.pkgd.min.js"></script>
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -66,6 +70,16 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<style>
+  .grid-item {
+    width: 25%;
+    float: left;
+    background: #FFFFFF;
+    border: 2px solid #333;
+    border-color: hsla(0, 0%, 0%, 0.5);
+    border-radius: 5px;
+  }
+</style>
 
 
 </head>
@@ -77,10 +91,10 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <a href="https://www.younglives.org.uk/" class="navbar-brand navbar-brand-logo">
     <img src="./logo.png" alt="" class="navbar-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="https://www.younglives.org.uk/">
     <span class="navbar-title">Gerry’s test site</span>
     </a>
   </div>
@@ -132,29 +146,237 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>here is a photo direct from the unsplash download address:</p>
+<p>All these photos come from <a href="https://picsum.photos/">Lorem picsum</a>, and they are given the lightbox treatment (click on them to see them together in a gallery!)</p>
+<section id="simple-gallery-using-layout-ncol" class="level1">
+<h1>Simple gallery using layout-ncol</h1>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="4">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://unsplash.com/photos/-Q_t4SCN8c4/download?ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNzQ5NTkwMTU0fA&amp;force=true&amp;w=640.png" class="img-fluid figure-img"></p>
-<figcaption>test</figcaption>
+<p><a href="https://fastly.picsum.photos/id/237/200/200.jpg?hmac=zHUGikXUDyLCCmvyww1izLK3R3k8oRYBRiTizZEdyfI" class="lightbox" data-gallery="gallery_1" title="Doggy"><img src="https://fastly.picsum.photos/id/237/200/200.jpg?hmac=zHUGikXUDyLCCmvyww1izLK3R3k8oRYBRiTizZEdyfI" class="img-fluid figure-img" alt="Doggy"></a></p>
+<figcaption>Doggy</figcaption>
 </figure>
 </div>
-<p>finally, lets try lorem picsum for a specific image using ID:</p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://picsum.photos/id/237/200/300.png" class="img-fluid figure-img"></p>
-<figcaption>Lorem picsum</figcaption>
+<p><a href="https://fastly.picsum.photos/id/193/200/200.jpg?hmac=JHo5tWHSRWvVbL3HX6rwDNdkvYPFojLtXkEGEUCgz6A" class="lightbox" data-gallery="gallery_1" title="Oxford?"><img src="https://fastly.picsum.photos/id/193/200/200.jpg?hmac=JHo5tWHSRWvVbL3HX6rwDNdkvYPFojLtXkEGEUCgz6A" class="img-fluid figure-img" alt="Oxford?"></a></p>
+<figcaption>Oxford?</figcaption>
 </figure>
 </div>
-<p>maybe its an issue with redirect?:</p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://fastly.picsum.photos/id/1/5000/3333.jpg?hmac=Asv2DU3rA_5D1xSe22xZK47WEAN0wjWeFOhzd13ujW4" class="img-fluid figure-img"></p>
-<figcaption>Lorem ipsum direct</figcaption>
+<p><a href="https://fastly.picsum.photos/id/1003/200/200.jpg?hmac=w2SN03yog7_RB-IfnyWX1FtBjSHebnoWD35Lj4-iV7o" class="lightbox" data-gallery="gallery_1" title="Deer"><img src="https://fastly.picsum.photos/id/1003/200/200.jpg?hmac=w2SN03yog7_RB-IfnyWX1FtBjSHebnoWD35Lj4-iV7o" class="img-fluid figure-img" alt="Deer"></a></p>
+<figcaption>Deer</figcaption>
 </figure>
 </div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://fastly.picsum.photos/id/846/200/200.jpg?hmac=sBOPnyp2w5gN9cwTnXUuQ528aG4bLJ2qf_d-3y-LjSo" class="lightbox" data-gallery="gallery_1" title="Waves"><img src="https://fastly.picsum.photos/id/846/200/200.jpg?hmac=sBOPnyp2w5gN9cwTnXUuQ528aG4bLJ2qf_d-3y-LjSo" class="img-fluid figure-img" alt="Waves"></a></p>
+<figcaption>Waves</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://fastly.picsum.photos/id/91/200/200.jpg?hmac=y-8iGl9dOkbHqADPlWuS-rWBHNBWWXlzKcsTDu2WeQo" class="lightbox" data-gallery="gallery_1" title="Artsy camera"><img src="https://fastly.picsum.photos/id/91/200/200.jpg?hmac=y-8iGl9dOkbHqADPlWuS-rWBHNBWWXlzKcsTDu2WeQo" class="img-fluid figure-img" alt="Artsy camera"></a></p>
+<figcaption>Artsy camera</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://fastly.picsum.photos/id/364/200/200.jpg?hmac=wN2-1fE2NpZHjoUsBhb3BfnYFXmdmhd-DVhDqHG_Kg0" class="lightbox" data-gallery="gallery_1" title="Airplane"><img src="https://fastly.picsum.photos/id/364/200/200.jpg?hmac=wN2-1fE2NpZHjoUsBhb3BfnYFXmdmhd-DVhDqHG_Kg0" class="img-fluid figure-img" alt="Airplane"></a></p>
+<figcaption>Airplane</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://fastly.picsum.photos/id/842/200/200.jpg?hmac=RW9iEgAYLKwoinQWSz_zrZHyOwmVEgqvoZTPebkRGMM" class="lightbox" data-gallery="gallery_1" title="Mysterious foggy steps…"><img src="https://fastly.picsum.photos/id/842/200/200.jpg?hmac=RW9iEgAYLKwoinQWSz_zrZHyOwmVEgqvoZTPebkRGMM" class="img-fluid figure-img" alt="Mysterious foggy steps…"></a></p>
+<figcaption>Mysterious foggy steps…</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://fastly.picsum.photos/id/53/200/200.jpg?hmac=NvXWlWpaKnDMb_phNyfwXppFuuNz0jK69wUnSFYQ6Ww" class="lightbox" data-gallery="gallery_1" title="Sky ting"><img src="https://fastly.picsum.photos/id/53/200/200.jpg?hmac=NvXWlWpaKnDMb_phNyfwXppFuuNz0jK69wUnSFYQ6Ww" class="img-fluid figure-img" alt="Sky ting"></a></p>
+<figcaption>Sky ting</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>works nice if they are all the same size photo, what about different sizes?</p>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="4">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://fastly.picsum.photos/id/55/200/300.jpg?hmac=VjTl-6Y6NNyUWof_G17-KlocVl0QuUoxpir1beSTl8A" class="lightbox" data-gallery="gallery_2" title="Flower"><img src="https://fastly.picsum.photos/id/55/200/300.jpg?hmac=VjTl-6Y6NNyUWof_G17-KlocVl0QuUoxpir1beSTl8A" class="img-fluid figure-img" alt="Flower"></a></p>
+<figcaption>Flower</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://fastly.picsum.photos/id/495/200/200.jpg?hmac=WzrKoNNBWVnlSjTRFVRlUyZghnLUBZJXeXdHNugLsQ4" class="lightbox" data-gallery="gallery_2" title="Machinery"><img src="https://fastly.picsum.photos/id/495/200/200.jpg?hmac=WzrKoNNBWVnlSjTRFVRlUyZghnLUBZJXeXdHNugLsQ4" class="img-fluid figure-img" alt="Machinery"></a></p>
+<figcaption>Machinery</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://fastly.picsum.photos/id/1075/200/400.jpg?hmac=jhcJzJcIbzMlKyMFYaNk6JBx55WUGOJfLYTtAX4SKKw" class="lightbox" data-gallery="gallery_2" title="Seattle"><img src="https://fastly.picsum.photos/id/1075/200/400.jpg?hmac=jhcJzJcIbzMlKyMFYaNk6JBx55WUGOJfLYTtAX4SKKw" class="img-fluid figure-img" alt="Seattle"></a></p>
+<figcaption>Seattle</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://fastly.picsum.photos/id/941/200/250.jpg?hmac=jm1tRRhNE7bx3sj8A9Cz74ix9aU9enIbf9c-uCX_sS4" class="lightbox" data-gallery="gallery_2" title="Island"><img src="https://fastly.picsum.photos/id/941/200/250.jpg?hmac=jm1tRRhNE7bx3sj8A9Cz74ix9aU9enIbf9c-uCX_sS4" class="img-fluid figure-img" alt="Island"></a></p>
+<figcaption>Island</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://fastly.picsum.photos/id/722/200/300.jpg?hmac=MDrZtULoytyxS357HVHCqzJRUv_BsxU0MEgszPVuMyY" class="lightbox" data-gallery="gallery_2" title="Hazy forest"><img src="https://fastly.picsum.photos/id/722/200/300.jpg?hmac=MDrZtULoytyxS357HVHCqzJRUv_BsxU0MEgszPVuMyY" class="img-fluid figure-img" alt="Hazy forest"></a></p>
+<figcaption>Hazy forest</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://fastly.picsum.photos/id/48/200/200.jpg?hmac=3FKJwSlm1FM1GD916vZX2Z3HUjHsUXvQM3rYWYXsQvc" class="lightbox" data-gallery="gallery_2" title="Macbook"><img src="https://fastly.picsum.photos/id/48/200/200.jpg?hmac=3FKJwSlm1FM1GD916vZX2Z3HUjHsUXvQM3rYWYXsQvc" class="img-fluid figure-img" alt="Macbook"></a></p>
+<figcaption>Macbook</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://fastly.picsum.photos/id/234/200/300.jpg?hmac=KD9xFDCez7-lqgcMm-EEi7BtpClIdCzJS6YvFVyLiDs" class="lightbox" data-gallery="gallery_2" title="Paris"><img src="https://fastly.picsum.photos/id/234/200/300.jpg?hmac=KD9xFDCez7-lqgcMm-EEi7BtpClIdCzJS6YvFVyLiDs" class="img-fluid figure-img" alt="Paris"></a></p>
+<figcaption>Paris</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://fastly.picsum.photos/id/115/200/250.jpg?hmac=seUlfCABpCiUkqKxbsqrsw4I_XKWR_asF6I9Fie1U1k" class="lightbox" data-gallery="gallery_2" title="Raindrops"><img src="https://fastly.picsum.photos/id/115/200/250.jpg?hmac=seUlfCABpCiUkqKxbsqrsw4I_XKWR_asF6I9Fie1U1k" class="img-fluid figure-img" alt="Raindrops"></a></p>
+<figcaption>Raindrops</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>not quite as pretty…</p>
+</section>
+<section id="masonary.js" class="level1">
+<h1>Masonary.js?</h1>
+<p>Lets try using the extension to use masonary.js written by <code>@mcanouil</code> (mcanouil/quarto-masonry), to give us a cascading gallery, following the suggestions of <a href="https://www.cynthiahqy.com/posts/masonry-gallery/">Cynthia Huang’s post</a> first install using the following command in the terminal:</p>
+<pre><code>quarto add mcanouil/quarto-masonry</code></pre>
+<p>then we can create our Pinterest-style cascading gallery:</p>
+<div class="grid" data-masonry="{ &quot;itemSelector&quot;: &quot;.grid-item&quot;, &quot;gutter&quot;: 0 }">
+<div class="grid-item">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://fastly.picsum.photos/id/55/200/300.jpg?hmac=VjTl-6Y6NNyUWof_G17-KlocVl0QuUoxpir1beSTl8A" class="lightbox" data-gallery="gallery_3" title="Flower"><img src="https://fastly.picsum.photos/id/55/200/300.jpg?hmac=VjTl-6Y6NNyUWof_G17-KlocVl0QuUoxpir1beSTl8A" class="img-fluid figure-img" alt="Flower"></a></p>
+<figcaption>Flower</figcaption>
+</figure>
+</div>
+</div>
+<div class="grid-item">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://fastly.picsum.photos/id/495/200/200.jpg?hmac=WzrKoNNBWVnlSjTRFVRlUyZghnLUBZJXeXdHNugLsQ4" class="lightbox" data-gallery="gallery_2" title="Machinery"><img src="https://fastly.picsum.photos/id/495/200/200.jpg?hmac=WzrKoNNBWVnlSjTRFVRlUyZghnLUBZJXeXdHNugLsQ4" class="img-fluid figure-img" alt="Machinery"></a></p>
+<figcaption>Machinery</figcaption>
+</figure>
+</div>
+</div>
+<div class="grid-item">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://fastly.picsum.photos/id/1075/200/400.jpg?hmac=jhcJzJcIbzMlKyMFYaNk6JBx55WUGOJfLYTtAX4SKKw" class="lightbox" data-gallery="gallery_2" title="Seattle"><img src="https://fastly.picsum.photos/id/1075/200/400.jpg?hmac=jhcJzJcIbzMlKyMFYaNk6JBx55WUGOJfLYTtAX4SKKw" class="img-fluid figure-img" alt="Seattle"></a></p>
+<figcaption>Seattle</figcaption>
+</figure>
+</div>
+</div>
+<div class="grid-item">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://fastly.picsum.photos/id/941/200/250.jpg?hmac=jm1tRRhNE7bx3sj8A9Cz74ix9aU9enIbf9c-uCX_sS4" class="lightbox" data-gallery="gallery_2" title="Island"><img src="https://fastly.picsum.photos/id/941/200/250.jpg?hmac=jm1tRRhNE7bx3sj8A9Cz74ix9aU9enIbf9c-uCX_sS4" class="img-fluid figure-img" alt="Island"></a></p>
+<figcaption>Island</figcaption>
+</figure>
+</div>
+</div>
+<div class="grid-item">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://fastly.picsum.photos/id/722/200/300.jpg?hmac=MDrZtULoytyxS357HVHCqzJRUv_BsxU0MEgszPVuMyY" class="lightbox" data-gallery="gallery_2" title="Hazy forest"><img src="https://fastly.picsum.photos/id/722/200/300.jpg?hmac=MDrZtULoytyxS357HVHCqzJRUv_BsxU0MEgszPVuMyY" class="img-fluid figure-img" alt="Hazy forest"></a></p>
+<figcaption>Hazy forest</figcaption>
+</figure>
+</div>
+</div>
+<div class="grid-item">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://fastly.picsum.photos/id/48/200/200.jpg?hmac=3FKJwSlm1FM1GD916vZX2Z3HUjHsUXvQM3rYWYXsQvc" class="lightbox" data-gallery="gallery_2" title="Macbook"><img src="https://fastly.picsum.photos/id/48/200/200.jpg?hmac=3FKJwSlm1FM1GD916vZX2Z3HUjHsUXvQM3rYWYXsQvc" class="img-fluid figure-img" alt="Macbook"></a></p>
+<figcaption>Macbook</figcaption>
+</figure>
+</div>
+</div>
+<div class="grid-item">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://fastly.picsum.photos/id/234/200/300.jpg?hmac=KD9xFDCez7-lqgcMm-EEi7BtpClIdCzJS6YvFVyLiDs" class="lightbox" data-gallery="gallery_2" title="Paris"><img src="https://fastly.picsum.photos/id/234/200/300.jpg?hmac=KD9xFDCez7-lqgcMm-EEi7BtpClIdCzJS6YvFVyLiDs" class="img-fluid figure-img" alt="Paris"></a></p>
+<figcaption>Paris</figcaption>
+</figure>
+</div>
+</div>
+<div class="grid-item">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://fastly.picsum.photos/id/115/200/250.jpg?hmac=seUlfCABpCiUkqKxbsqrsw4I_XKWR_asF6I9Fie1U1k" class="lightbox" data-gallery="gallery_2" title="Raindrops"><img src="https://fastly.picsum.photos/id/115/200/250.jpg?hmac=seUlfCABpCiUkqKxbsqrsw4I_XKWR_asF6I9Fie1U1k" class="img-fluid figure-img" alt="Raindrops"></a></p>
+<figcaption>Raindrops</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>however worryingly, I think adding lightbox features to the cascading gallery leads to them messing up and overlapping…</p>
+</section>
+<section id="carousel" class="level1">
+<h1>Carousel?</h1>
+<p>I would also love to be able to have a rotating carousel of photos, although this isn’t a native option for Quarto.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -575,6 +797,38 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
