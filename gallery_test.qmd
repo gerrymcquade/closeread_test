@@ -116,3 +116,5 @@ however worryingly, I think adding lightbox features to the cascading gallery le
 # Carousel?
 
 I would also love to be able to have a rotating carousel of photos, although this isn't a native option for Quarto.
+
+**work in progress**
