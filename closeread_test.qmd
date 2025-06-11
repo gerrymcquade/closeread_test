@@ -4,8 +4,15 @@ format:
   closeread-html:
     remove-header-space: true
     css: https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css
+    cr-style:
+      narrative-background-color-overlay: "#211545"
+      narrative-text-color-overlay: "white"
+      narrative-background-color-sidebar: "white"
+      section-background-color: "white"
 title-block-banner: "#211545"
 title-block-banner-color: "white"
+lightbox: 
+  match: auto
 
 ---
 
@@ -44,20 +51,20 @@ this might be useful to show change over time:
 For example, here is the graph we have of annual average PM2.5 air pollution in Ethiopia in 1998...
 :::
 
-::: {#cr-fig2}
-![](eth_pm25_1998.svg){width="70%"}
+::: {#cr-fig2 .scale-to-fill}
+![](eth_pm25_1998.svg){width=50% fig-align="center" layout-valign="center"}
 :::
 
 compared with air pollution in 2022! Look at the difference! @cr-fig3
 
 
-::: {#cr-fig3}
-![](eth_pm25_2022.svg){width="70%"}
+::: {#cr-fig3 .scale-to-fill}
+![](eth_pm25_2022.svg){width=50% fig-align="center" layout-valign="center"}
 :::
 
-we can even zoom in to look at some of our communities... for example around Addis Ababa: [@cr-fig3]{pan-to="50%,0%" scale-by="3"}
+we can even zoom in to look at some of our communities... for example around Addis Ababa: [@cr-fig3]{pan-to="25%,0%" scale-by="3"}
 
-or even look at the difference across our communities by panning up towards Tigray! [@cr-fig3]{pan-to="50%,75%" scale-by="3"}
+or even look at the difference across our communities by panning up towards Tigray! [@cr-fig3]{pan-to="25%,75%" scale-by="3"}
 
 ::::::::
 
@@ -70,9 +77,9 @@ I can split up sections of scrollytelling using normal text, figures, tables and
 I have even tried out using a bit of Javascript to give a juxtapose of 2 images, which lets you use the slider to compare across time, give it a try below!
 
 ::: {.juxtapose data-startingposition="20%" style="margin-bottom:2em"}
-![](eth_pm25_2022.svg){width="50%" width="50%" data-credit="Young Lives, using V6.GL.02, Washington University St. Louis" data-label="PM2.5 in 2022"}
+![](eth_pm25_2022.svg){width="50%" data-credit="Young Lives, using V6.GL.02, Washington University St. Louis" data-label="PM2.5 in 2022"}
 
-![](eth_pm25_1998.svg){width="50%" data-label="PM2.5 in 1998"}
+![](eth_pm25_1998.svg){width=50%" data-label="PM2.5 in 1998"}
 :::
 
 Hopefully it works! Testing it a bit however it seems the juxtapose.js doesn't work inside the scrollytelling sections...😭
@@ -128,5 +135,31 @@ hist(rnorm(15))
 ```
 :::
 
-they can even be interactive!
+and here is a table: @cr-table
+
+:::{#cr-table}
+```{r}
+data(mtcars)
+knitr::kable(mtcars[1:5, ], )
+```
+:::
+
 ::::
+
+# Simple gallery with descriptions
+
+We could even have an small gallery with photos that you can click on to have a closer look and read a description:
+
+::: {layout-ncol=4}
+
+![Doggy](https://fastly.picsum.photos/id/237/200/200.jpg?hmac=zHUGikXUDyLCCmvyww1izLK3R3k8oRYBRiTizZEdyfI){group="gallery_1" description="blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah"}
+
+![Oxford?](https://fastly.picsum.photos/id/193/200/200.jpg?hmac=JHo5tWHSRWvVbL3HX6rwDNdkvYPFojLtXkEGEUCgz6A){group="gallery_1" description="blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah"}
+
+![Deer](https://fastly.picsum.photos/id/1003/200/200.jpg?hmac=w2SN03yog7_RB-IfnyWX1FtBjSHebnoWD35Lj4-iV7o){group="gallery_1" description="blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah"}
+
+![Waves](https://fastly.picsum.photos/id/846/200/200.jpg?hmac=sBOPnyp2w5gN9cwTnXUuQ528aG4bLJ2qf_d-3y-LjSo){group="gallery_1" description="blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah"}
+
+:::
+
+

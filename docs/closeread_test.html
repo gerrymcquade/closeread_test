@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.42">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -69,13 +69,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-d4be639c637f3db3c684c66cefad7e0c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/intersection-observer-polyfill-1.0.0/intersection-observer.js"></script>
 <script src="site_libs/quarto-contrib/scrollama-3.2.0/scrollama.min.js"></script>
 <script src="site_libs/quarto-contrib/closeread-0.1.0/closeread.js"></script>
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -188,14 +191,24 @@ background: #211545;
     
 <!-- main -->
 <main class="content quarto-banner-title-block column-page" id="quarto-document-content">
+      <!-- user-provided yaml closeread style options -->
+      <style>
+        :root {
+          --cr-narrative-background-color-overlay: #211545;
+--cr-narrative-background-color-sidebar: white;
+--cr-narrative-text-color-overlay: white;
+--cr-section-background-color: white;
+        }
+      </style>
+    
 
 
 
 
 
 <div class="cell hidden">
-<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="13" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 12;"><span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="pp">require</span>(<span class="st">"https://cdn.jsdelivr.net/npm/juxtaposejs@1.1.6/build/js/juxtapose.min.js"</span>)</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">catch</span>(() <span class="kw">=&gt;</span> <span class="kw">null</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="20" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 19;"><span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="pp">require</span>(<span class="st">"https://cdn.jsdelivr.net/npm/juxtaposejs@1.1.6/build/js/juxtapose.min.js"</span>)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">catch</span>(() <span class="kw">=&gt;</span> <span class="kw">null</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display hidden">
 <div id="ojs-cell-1" data-nodetype="expression">
 
@@ -233,12 +246,12 @@ background: #211545;
 <p>compared with air pollution in 2022! Look at the difference!</p>
 </div>
 </div>
-<div class="trigger new-trigger" data-focus-on="cr-fig3" data-scale-by="3" data-pan-to="50%,0%">
+<div class="trigger new-trigger" data-focus-on="cr-fig3" data-pan-to="25%,0%" data-scale-by="3">
 <div class="narrative">
 <p>we can even zoom in to look at some of our communities… for example around Addis Ababa:</p>
 </div>
 </div>
-<div class="trigger new-trigger" data-focus-on="cr-fig3" data-scale-by="3" data-pan-to="50%,75%">
+<div class="trigger new-trigger" data-focus-on="cr-fig3" data-pan-to="25%,75%" data-scale-by="3">
 <div class="narrative">
 <p>or even look at the difference across our communities by panning up towards Tigray!</p>
 </div>
@@ -254,27 +267,35 @@ background: #211545;
 </ol>
 </div>
 <div id="cr-fig1" class="sticky">
-<p><img src="amber-kipp-75715CVEJhI-unsplash.jpg" class="img-fluid"></p>
+<p><a href="amber-kipp-75715CVEJhI-unsplash.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="amber-kipp-75715CVEJhI-unsplash.jpg" class="img-fluid"></a></p>
 <p>Image by <a href="https://unsplash.com/photos/selective-focus-photography-of-orange-and-white-cat-on-brown-table-75715CVEJhI">Amber Kipp</a> on Unsplash</p>
 </div>
-<div id="cr-fig2" class="sticky">
-<p><img src="eth_pm25_1998.svg" class="img-fluid" style="width:70.0%"></p>
+<div id="cr-fig2" class="scale-to-fill sticky">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="eth_pm25_1998.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="eth_pm25_1998.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%" data-layout-valign="center"></a></p>
+</figure>
 </div>
-<div id="cr-fig3" class="sticky">
-<p><img src="eth_pm25_2022.svg" class="img-fluid" style="width:70.0%"></p>
+</div>
+<div id="cr-fig3" class="scale-to-fill sticky">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="eth_pm25_2022.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="eth_pm25_2022.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%" data-layout-valign="center"></a></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
 </div>
 <p>I can split up sections of scrollytelling using normal text, figures, tables and graphs:</p>
-<p>Aenean placerat luctus tortor vitae molestie. Nulla at aliquet nulla. Sed efficitur tellus orci, sed fringilla lectus laoreet eget. Vivamus maximus quam sit amet arcu dignissim, sed accumsan massa ullamcorper. Sed iaculis tincidunt feugiat. Nulla in est at nunc ultricies dictum ut vitae nunc. Aenean convallis vel diam at malesuada. Suspendisse arcu libero, vehicula tempus ultrices a, placerat sit amet tortor. Sed dictum id nulla commodo mattis. Aliquam mollis, nunc eu tristique faucibus, purus lacus tincidunt nulla, ac pretium lorem nunc ut enim. Curabitur eget mattis nisl, vitae sodales augue. Nam felis massa, bibendum sit amet nulla vel, vulputate rutrum lacus. Aenean convallis odio pharetra nulla mattis consequat.</p>
+<p>Etiam maximus accumsan gravida. Maecenas at nunc dignissim, euismod enim ac, bibendum ipsum. Maecenas vehicula velit in nisl aliquet ultricies. Nam eget massa interdum, maximus arcu vel, pretium erat. Maecenas sit amet tempor purus, vitae aliquet nunc. Vivamus cursus urna velit, eleifend dictum magna laoreet ut. Duis eu erat mollis, blandit magna id, tincidunt ipsum. Integer massa nibh, commodo eu ex vel, venenatis efficitur ligula. Integer convallis lacus elit, maximus eleifend lacus ornare ac. Vestibulum scelerisque viverra urna id lacinia. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean eget enim at diam bibendum tincidunt eu non purus. Nullam id magna ultrices, sodales metus viverra, tempus turpis.</p>
 </section>
 <section id="juxtaposing-images" class="level1">
 <h1>Juxtaposing images</h1>
 <p>I have even tried out using a bit of Javascript to give a juxtapose of 2 images, which lets you use the slider to compare across time, give it a try below!</p>
 <div class="juxtapose" data-startingposition="20%" style="margin-bottom:2em">
-<p><img src="eth_pm25_2022.svg" class="img-fluid" style="width:50.0%" data-credit="Young Lives, using V6.GL.02, Washington University St. Louis" data-label="PM2.5 in 2022"></p>
-<p><img src="eth_pm25_1998.svg" class="img-fluid" style="width:50.0%" data-label="PM2.5 in 1998"></p>
+<p><a href="eth_pm25_2022.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="eth_pm25_2022.svg" class="img-fluid" style="width:50.0%" data-credit="Young Lives, using V6.GL.02, Washington University St. Louis" data-label="PM2.5 in 2022"></a></p>
+<p><a href="eth_pm25_1998.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="eth_pm25_1998.svg" class="img-fluid" data-label="PM2.5 in 1998"></a></p>
 </div>
 <p>Hopefully it works! Testing it a bit however it seems the juxtapose.js doesn’t work inside the scrollytelling sections…😭</p>
 <div class="cr-section cr-column-screen sidebar-right">
@@ -288,7 +309,7 @@ background: #211545;
 <div class="sticky-col">
 <div class="sticky-col-stack">
 <div id="cr-fig4" class="scale-to-fill sticky">
-<p><img src="pm25_levels.svg" class="img-fluid"></p>
+<p><a href="pm25_levels.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="pm25_levels.svg" class="img-fluid"></a></p>
 </div>
 </div>
 </div>
@@ -304,7 +325,7 @@ background: #211545;
 <div class="sticky-col">
 <div class="sticky-col-stack">
 <div id="cr-fig5" class="scale-to-fill sticky">
-<p><img src="pm25_levels.svg" class="img-fluid"></p>
+<p><a href="pm25_levels.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="pm25_levels.svg" class="img-fluid"></a></p>
 </div>
 </div>
 </div>
@@ -320,7 +341,7 @@ background: #211545;
 <div class="sticky-col">
 <div class="sticky-col-stack">
 <div id="cr-fig6" class="scale-to-fill sticky">
-<p><img src="pm25_levels.svg" class="img-fluid"></p>
+<p><a href="pm25_levels.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="pm25_levels.svg" class="img-fluid"></a></p>
 </div>
 </div>
 </div>
@@ -339,9 +360,9 @@ background: #211545;
 </div>
 </div>
 </div>
-<div class="trigger">
+<div class="trigger new-trigger" data-focus-on="cr-table">
 <div class="narrative">
-<p>they can even be interactive!</p>
+<p>and here is a table:</p>
 </div>
 </div>
 </div>
@@ -352,17 +373,184 @@ background: #211545;
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="closeread_test_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<p><a href="closeread_test_files/figure-html/unnamed-chunk-2-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="closeread_test_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
+<div id="cr-table" class="sticky">
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 7%">
+<col style="width: 5%">
+<col style="width: 7%">
+<col style="width: 5%">
+<col style="width: 7%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 7%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">mpg</th>
+<th style="text-align: right;">cyl</th>
+<th style="text-align: right;">disp</th>
+<th style="text-align: right;">hp</th>
+<th style="text-align: right;">drat</th>
+<th style="text-align: right;">wt</th>
+<th style="text-align: right;">qsec</th>
+<th style="text-align: right;">vs</th>
+<th style="text-align: right;">am</th>
+<th style="text-align: right;">gear</th>
+<th style="text-align: right;">carb</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Mazda RX4</td>
+<td style="text-align: right;">21.0</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">160</td>
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">3.90</td>
+<td style="text-align: right;">2.620</td>
+<td style="text-align: right;">16.46</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mazda RX4 Wag</td>
+<td style="text-align: right;">21.0</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">160</td>
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">3.90</td>
+<td style="text-align: right;">2.875</td>
+<td style="text-align: right;">17.02</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Datsun 710</td>
+<td style="text-align: right;">22.8</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">108</td>
+<td style="text-align: right;">93</td>
+<td style="text-align: right;">3.85</td>
+<td style="text-align: right;">2.320</td>
+<td style="text-align: right;">18.61</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hornet 4 Drive</td>
+<td style="text-align: right;">21.4</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">258</td>
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">3.08</td>
+<td style="text-align: right;">3.215</td>
+<td style="text-align: right;">19.44</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Hornet Sportabout</td>
+<td style="text-align: right;">18.7</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">360</td>
+<td style="text-align: right;">175</td>
+<td style="text-align: right;">3.15</td>
+<td style="text-align: right;">3.440</td>
+<td style="text-align: right;">17.02</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="simple-gallery-with-descriptions" class="level1">
+<h1>Simple gallery with descriptions</h1>
+<p>We could even have an small gallery with photos that you can click on to have a closer look and read a description:</p>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="4">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://fastly.picsum.photos/id/237/200/200.jpg?hmac=zHUGikXUDyLCCmvyww1izLK3R3k8oRYBRiTizZEdyfI" class="lightbox" data-glightbox="description: .lightbox-desc-10;title:Doggy;" data-gallery="gallery_1" title="Doggy"><img src="https://fastly.picsum.photos/id/237/200/200.jpg?hmac=zHUGikXUDyLCCmvyww1izLK3R3k8oRYBRiTizZEdyfI" class="img-fluid figure-img" alt="Doggy"></a></p>
+<figcaption>Doggy</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://fastly.picsum.photos/id/193/200/200.jpg?hmac=JHo5tWHSRWvVbL3HX6rwDNdkvYPFojLtXkEGEUCgz6A" class="lightbox" data-glightbox="description: .lightbox-desc-11;title:Oxford?;" data-gallery="gallery_1" title="Oxford?"><img src="https://fastly.picsum.photos/id/193/200/200.jpg?hmac=JHo5tWHSRWvVbL3HX6rwDNdkvYPFojLtXkEGEUCgz6A" class="img-fluid figure-img" alt="Oxford?"></a></p>
+<figcaption>Oxford?</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://fastly.picsum.photos/id/1003/200/200.jpg?hmac=w2SN03yog7_RB-IfnyWX1FtBjSHebnoWD35Lj4-iV7o" class="lightbox" data-glightbox="description: .lightbox-desc-12;title:Deer;" data-gallery="gallery_1" title="Deer"><img src="https://fastly.picsum.photos/id/1003/200/200.jpg?hmac=w2SN03yog7_RB-IfnyWX1FtBjSHebnoWD35Lj4-iV7o" class="img-fluid figure-img" alt="Deer"></a></p>
+<figcaption>Deer</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://fastly.picsum.photos/id/846/200/200.jpg?hmac=sBOPnyp2w5gN9cwTnXUuQ528aG4bLJ2qf_d-3y-LjSo" class="lightbox" data-glightbox="description: .lightbox-desc-13;title:Waves;" data-gallery="gallery_1" title="Waves"><img src="https://fastly.picsum.photos/id/846/200/200.jpg?hmac=sBOPnyp2w5gN9cwTnXUuQ528aG4bLJ2qf_d-3y-LjSo" class="img-fluid figure-img" alt="Waves"></a></p>
+<figcaption>Waves</figcaption>
+</figure>
+</div>
 </div>
 </div>
 </div>
 
 
+<div class="hidden" aria-hidden="true">
+<div class="glightbox-desc lightbox-desc-10">
+<p>blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah</p>
+</div>
+<div class="glightbox-desc lightbox-desc-11">
+<p>blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah</p>
+</div>
+<div class="glightbox-desc lightbox-desc-12">
+<p>blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah</p>
+</div>
+<div class="glightbox-desc lightbox-desc-13">
+<p>blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah</p>
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -459,6 +647,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -569,6 +759,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
+      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
@@ -795,6 +986,38 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","openEffect":"zoom","selector":".lightbox","loop":false,"descPosition":"bottom"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
